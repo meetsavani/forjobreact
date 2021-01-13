@@ -21,7 +21,7 @@ const modal = (props) => {
                 transform: props.show ? 'translateY(0)' : 'translateY(-100vh)'
             }}>
 
-                <button name="submit" onClick={handleInputChange}>Submit</button>
+                <button name="submit" onClick={handleInputChange}>Delete</button>
 
             </div>
         </div >

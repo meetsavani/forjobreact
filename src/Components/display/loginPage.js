@@ -16,8 +16,8 @@ const loginPage = (props) => {
         if (event.target.name === 'submit' && passwordValid === true) {
             props.function(EmailId, passwordValid)
         }
-        console.log(passwordValid, EmailId, event.target.name);
-        console.log(props.password);
+        // console.log(passwordValid, EmailId, event.target.name);
+        // console.log(props.password);
     }
 
     return (

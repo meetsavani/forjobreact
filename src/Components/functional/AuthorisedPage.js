@@ -133,12 +133,12 @@ export default class AuthorisedPage extends Component {
     }
 
     closeModalForUpdateDeleteModal = (sub) => {
-        this.setState({ updateUserModal: false })
+        this.setState({ deleteUserModal: false })
         // console.log(firstName, lastName, EmailId, Job);
 
         if (sub === "submit") {
 
-            let dataBlocks = this.search(this.state.selectedIdTOUpdate, this.state.data)
+            let dataBlocks = this.search(this.state.deleteUserModal, this.state.data)
 
             axios.post('https://reqres.in/api/users' + dataBlocks.id)
                 .then((response) => {
@@ -173,6 +173,7 @@ export default class AuthorisedPage extends Component {
     }
 
     showModalToDelete = (idRecieved) => {
+        // console.log("tata", idRecieved)
         this.setState({
             deleteUserModal: idRecieved
         })
@@ -185,7 +186,7 @@ export default class AuthorisedPage extends Component {
 
         this.state.data.sort((a, b) => { return a.id - b.id; });
         const dataToDisplay = this.state.data.map((res) => {
-            return <DisplayData key={res.id} id={res.id} email={res.email} firstName={res.first_name} lastName={res.last_name} avatar={res.avatar} callDeleteModal={this.showModalToDelete} callUpdateModal={this.showModalToUpdateUserModal} extra={res.extra} job={res.job} />
+            return <DisplayData key={res.id} id={res.id} email={res.email} firstName={res.first_name} lastName={res.last_name} avatar={res.avatar} modalClosed={this.showModalToDelete} callUpdateModal={this.showModalToUpdateUserModal} extra={res.extra} job={res.job} />
         })
 
         let updateUserModal = null;
@@ -197,7 +198,7 @@ export default class AuthorisedPage extends Component {
             updateUserModal = (<AddUserModal show={this.state.addUserModal} modalClosed={this.closeModalForAddUserModal} id={this.state.data.length} />)
 
         let deleteUserModal = null;
-        if (this.state.addUserModal === true)
+        if (this.state.deleteUserModal)
             updateUserModal = (<DeleteUserModal show={this.state.deleteUserModal} modalClosed={this.closeModalForUpdateDeleteModal} id={this.state.data.length} />)
 
 

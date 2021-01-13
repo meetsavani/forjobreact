@@ -7,10 +7,10 @@ export default class App extends Component {
 
   state = {
     userId: {
-      name: "Meet",
-      password: 'A'
+      name: null,
+      password: 'Admin@123'
     },
-    isAuthorised: true
+    isAuthorised: false
   }
 
   isAuthorisedHandler = (name, trueorfalse) => {

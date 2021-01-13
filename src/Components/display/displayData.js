@@ -11,7 +11,7 @@ const displayData = (props) => {
                 <td><img height="128" width="128" src={props.avatar} alt={props.avatar}></img></td>
                 <td>
                     <button onClick={props.callUpdateModal.bind(this, props.id)}>update</button>
-                    <button onClick={props.callDeleteModal.bind(this, props.id)}>delete</button>
+                    <button onClick={props.modalClosed.bind(this, props.id)}>delete</button>
                     <div>
                         {props.extra}
                     </div>
